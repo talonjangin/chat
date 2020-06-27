@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
 })
 
 //socket.io
-
+/*
 io.on("connection", socket => {
   //console.log("io connected")
 
@@ -32,7 +32,7 @@ io.on("connection", socket => {
     io.emit("message", msg)
   })
 })
-
+*/
 // server
 const port = process.env.PORT || 8080
 server.listen(port, function () {
