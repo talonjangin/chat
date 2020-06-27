@@ -14,7 +14,7 @@ router.post("/join", function (req, res, next) {
   const userPw = req.body["userPw"]
   const userPwRe = req.body["userPwRe"]
   if (userPw == userPwRe) {
-    db.query("select * from user", function (err, rows, fields) {
+    db.query("insert into user (id, password) values(?,?)", [userId, userPw], function (err, rows, fields) {
       if (!err) {
         res.send(rows)
         console.log(rows)
