@@ -2,6 +2,7 @@ const express = require("express")
 const http = require("http")
 const path = require("path")
 const socket = require("socket.io")
+const formatMessages = require("./utils/messages")
 const app = express()
 
 const server = http.createServer(app)
@@ -23,13 +24,14 @@ app.get("/", function (req, res) {
 
 //socket.io
 
+const masterBot = "jisung"
 io.on("connection", socket => {
   //console.log("io connected")
 
-  socket.emit("message", "welcome jschat")
+  socket.emit("message", formatMessages(masterBot, "welcome jschat"))
 
   socket.on("chatMessage", msg => {
-    io.emit("message", msg)
+    io.emit("message", formatMessages("user", msg))
   })
 })
 
