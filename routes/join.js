@@ -15,34 +15,16 @@ router.post("/join", function (req, res, next) {
   const userPwRe = req.body["userPwRe"]
   if (userPw == userPwRe) {
     db.query("insert into user (id, password) values(?,?)", [userId, userPw], function (err, rows, fields) {
-      if (!err) {
-        res.send(rows)
-        console.log(rows)
-      } else {
+      if (err) {
         console.log(err)
-      }
-    })
-  } else {
-    res.send("password not match!")
-  }
-})
-/*
-router.post("/", function (req, res, next) {
-  const userId = req.body["userId"]
-  const userPw = req.body["userPw"]
-  const userPwRe = req.body["userPwRe"]
-  if (userPw == userPwRe) {
-    connection.query("insert into test_user values(?,?)", [userId, userPw], function (err, rows, fields) {
-      if (!err) {
-        res.send("success")
       } else {
-        res.send("err : " + err)
+        console.log(rows)
+        res.send("query ok")
       }
     })
   } else {
     res.send("password not match!")
   }
 })
-*/
 
 module.exports = router
