@@ -29,6 +29,12 @@ function outputMessage(message) {
   const div = document.createElement("div")
 
   div.classList.add("message")
-  div.innerHTML = `<p>${message}</p>`
+  div.innerHTML = `<p>${message.username}</p><p>${message.text}</p><p>${message.time}</p>`
   document.querySelector(".chat-messages").appendChild(div)
+}
+
+//mysql
+
+function mysqlTest() {
+  console.log("mysql teest")
 }
