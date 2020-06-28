@@ -77,7 +77,7 @@ app.get("/api/join", function (req, res) {
       console.log(rows)
       console.log("query ok")
     }
-    res.send({ result: "result transport" })
+    res.send({ result: "GOOD JISUNG" })
   })
 })
 
