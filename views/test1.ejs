@@ -30,6 +30,7 @@
           //Ajax POST Method TEST
           $.ajax({
             url: "/api/join",
+            dataType: "json",
             type: "POST",
             success: function (result) {
               $("#post_output").html("query ok")

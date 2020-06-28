@@ -61,18 +61,6 @@ app.get("/api/get", function (req, res) {
   console.log("그냥 콘솔")
 })
 //
-app.post("/api/join", function (req, res) {
-  db.query("insert into chat_table (id, password) values(3,3)", function (err, rows, fields) {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log(rows)
-      console.log("query ok")
-    }
-  })
-  res.send({ result: "query ok" })
-})
-
 const db = mysql.createConnection({
   host: `db-instance-identify1.ckkumldpzh8n.ap-northeast-2.rds.amazonaws.com`,
   user: "wltjd1014",
@@ -83,6 +71,19 @@ db.connect()
 app.use("/test1", function (req, res) {
   res.render("test1")
 })
+app.post("/api/join", function (req, res) {
+  db.query("INSERT INTO `chat_aws`.`chat_table` (`id`, `password`) VALUES ('3', '3');", function (err, rows, fields) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(rows)
+      console.log("query ok")
+    }
+    res.send({ result: "result transport" })
+  })
+})
+
+//INSERT INTO `chat_aws`.`chat_table` (`id`, `password`) VALUES ('3', '3');
 /*
 const router = express.Router()
 const joinRouter = require("./routes/join")

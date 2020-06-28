@@ -18,7 +18,7 @@ const db = mysql.createConnection({
 */
 db.connect()
 
-router.post("/join", function (req, res, next) {
+/* router.post("/join", function (req, res, next) {
   const userId = req.body["userId"]
   const userPw = req.body["userPw"]
   const userPwRe = req.body["userPwRe"]
@@ -34,7 +34,7 @@ router.post("/join", function (req, res, next) {
   } else {
     res.send("password not match!")
   }
-})
+}) */
 
 module.exports = router
 
