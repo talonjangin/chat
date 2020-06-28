@@ -60,6 +60,7 @@ app.get("/api/get", function (req, res) {
   res.send({ result: "just text" })
   console.log("그냥 콘솔")
 })
+//
 app.post("/api/join", function (req, res) {
   db.query("insert into chat_table (id, password) values(3,3)", function (err, rows, fields) {
     if (err) {
