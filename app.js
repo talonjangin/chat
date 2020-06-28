@@ -50,6 +50,38 @@ var testRouter = require("./routes/test")
 app.use("/", testRouter)
 var joinRouter = require("./routes/join")
 app.use("/", joinRouter)
+
+app.get("/api/get", function (req, res) {
+  /*   var data = req.query.data
+
+  var result = data + " Succese"
+  */
+
+  res.send({ result: "just text" })
+  console.log("그냥 콘솔")
+})
+app.post("/api/join", function (req, res) {
+  db.query("select * from chat_table", function (err, rows, fields) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(rows)
+      console.log("query ok")
+    }
+  })
+  res.send({ result: "query ok" })
+})
+
+const db = mysql.createConnection({
+  host: `db-instance-identify1.ckkumldpzh8n.ap-northeast-2.rds.amazonaws.com`,
+  user: "wltjd1014",
+  password: "lucifer247",
+  database: "chat_aws",
+})
+db.connect()
+app.use("/test1", function (req, res) {
+  res.render("test1")
+})
 /*
 const router = express.Router()
 const joinRouter = require("./routes/join")

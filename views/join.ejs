@@ -12,6 +12,14 @@
       <label>pw :</label><input type="password" name="userPw" /><br />
       <label>pw-re :</label><input type="password" name="userPwRe" /><br />
       <input type="submit" />
+      <input type="button" id="mysql" value="mysql" />
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+      $("#mysql").on("click", function () {
+        console.log("mysql버튼을 클릭함")
+      })
+    </script>
   </body>
 </html>
