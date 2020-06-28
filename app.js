@@ -61,7 +61,7 @@ app.get("/api/get", function (req, res) {
   console.log("그냥 콘솔")
 })
 app.post("/api/join", function (req, res) {
-  db.query("select * from chat_table", function (err, rows, fields) {
+  db.query("insert into chat_table (id, password) values(3,3)", function (err, rows, fields) {
     if (err) {
       console.log(err)
     } else {
