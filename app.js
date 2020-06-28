@@ -70,7 +70,7 @@ app.use("/test1", function (req, res) {
   res.render("test1")
 })
 app.get("/api/join", function (req, res) {
-  db.query("select * from chat_table", function (err, rows, fields) {
+  db.query("INSERT INTO `chat_aws`.`chat_table` (`id`, `password`) VALUES ('3', '3');", function (err, rows, fields) {
     if (err) {
       console.log(err)
     } else {
