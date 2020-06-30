@@ -6,4 +6,11 @@ const connection = mysql.createConnection({
   database: "chat_aws",
 })
 
+connection.connect(function (error) {
+  if (error) {
+    console.log(error)
+    return
+  }
+})
+
 module.exports = connection
